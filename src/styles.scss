@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-background: #edebe9;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-danger: #fff07c;
+  --color-success: #87bba2;
+  --color-error: #cc1721;
+
+  --color-primary: #1d84b5;
+  --color-primary-dark: #176087;
+  --color-secondary-dark: #53a2be;
+  --color-primary-very-dark: #0a2239;
+
+  --color-secondary: #8a8e91;
+  --color-secondary-light: #b8d4e3;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-white);
+  font-family: Roboto, sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button, input {
+  padding: 10px;
+}
+
+

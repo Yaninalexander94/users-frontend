@@ -1,0 +1,134 @@
+<ng-container>
+  @if (isLoading$()) {
+    <span>{{ 'shared.loading' | translate }}</span>
+  } @else {
+    <button
+      mat-button
+      (click)="onAddUser()"
+      class="user-add-button"
+    >
+      {{ 'widgets.usersList.addUser.button'  | translate }}
+    </button>
+    @if (usersList$().length > 0) {
+      <table
+        mat-table
+        [dataSource]="usersList$()"
+        class="users-table"
+      >
+        <ng-container matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.name' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="surname">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.surname' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.surname }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="login">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.login' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.login }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.email' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.email }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.position' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.position }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="isBlocked">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+          >
+            {{ 'widgets.usersList.table.header.isBlocked' | translate }}
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+          >
+            <mat-checkbox
+              [checked]="element.isBlocked"
+              disabled
+            ></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+        ></tr>
+
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          [class.completed-row]="row.isCompleted"
+          (mouseenter)="highlightedRow$.set(row)"
+          (mouseleave)="highlightedRow$.set(null)"
+          [class.highlighted-row]="highlightedRow$() === row"
+          (dblclick)="openUserCard(row)"
+        >
+        </tr>
+      </table>
+    } @else {
+      <span>{{ 'shared.noData' | translate }}</span>
+    }
+  }
+</ng-container>
+
+
+

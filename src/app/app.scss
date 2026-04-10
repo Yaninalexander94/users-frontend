@@ -1,0 +1,15 @@
+.app {
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 0;
+
+  &__main {
+    //height: calc(100vh - 14vh);
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,27 @@
+.user-item {
+  &__title {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-white);
+  }
+
+  &__details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__actions {
+    justify-content: space-between;
+
+    button {
+      border: 1px solid var(--color-secondary-dark);
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: var(--color-secondary-dark);
+      color: var(--color-white);
+    }
+  }
+}

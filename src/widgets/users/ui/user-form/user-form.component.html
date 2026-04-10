@@ -1,0 +1,136 @@
+<h2
+  class="user-form__title"
+  mat-dialog-title
+>
+  {{ 'widgets.usersList.addUser.title' | translate }}
+</h2>
+
+<mat-dialog-content>
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onAddUser()"
+  >
+    <div class="user-form__form-group">
+      <label for="name">{{ 'widgets.usersList.userItem.name' | translate }}:</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        [(ngModel)]="user.name"
+        required
+        #nameInput="ngModel"
+      >
+      @if (nameInput.invalid && nameInput.touched) {
+        <ng-container
+          [ngTemplateOutlet]="errorMessageTemplate"
+          [ngTemplateOutletContext]="{ $implicit: 'shared.validation.required' }"
+        >
+        </ng-container>
+      }
+    </div>
+
+    <div class="user-form__form-group">
+      <label for="surname">{{ 'widgets.usersList.userItem.surname' | translate }}:</label>
+      <input
+        id="surname"
+        type="text"
+        name="surname"
+        [(ngModel)]="user.surname"
+        required
+        #surnameInput="ngModel"
+      >
+      @if (surnameInput.invalid && surnameInput.touched) {
+        <ng-container
+          [ngTemplateOutlet]="errorMessageTemplate"
+          [ngTemplateOutletContext]="{ $implicit: 'shared.validation.required' }"
+        >
+        </ng-container>
+      }
+    </div>
+
+    <div class="user-form__form-group">
+      <label for="login">{{ 'widgets.usersList.userItem.login' | translate }}:</label>
+      <input
+        id="login"
+        type="text"
+        name="login"
+        [(ngModel)]="user.login"
+        required
+        #loginInput="ngModel"
+      >
+      @if (loginInput.invalid && loginInput.touched) {
+        <ng-container
+          [ngTemplateOutlet]="errorMessageTemplate"
+          [ngTemplateOutletContext]="{ $implicit: 'shared.validation.required' }"
+        >
+        </ng-container>
+      }
+    </div>
+
+    <div class="user-form__form-group">
+      <label for="email">{{ 'widgets.usersList.userItem.email' | translate }}:</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+        email
+        #emailInput="ngModel"
+      >
+      @if (emailInput.invalid && emailInput.touched) {
+        <ng-container
+          [ngTemplateOutlet]="errorMessageTemplate"
+          [ngTemplateOutletContext]="{ $implicit: 'shared.validation.invalidEmail' }"
+        >
+        </ng-container>
+      }
+    </div>
+
+    <div class="user-form__form-group">
+      <label for="position">{{ 'widgets.usersList.userItem.position' | translate }}:</label>
+      <input
+        id="position"
+        type="text"
+        name="position"
+        required
+        [(ngModel)]="user.position"
+        #positionInput="ngModel"
+      >
+      @if (positionInput.invalid && positionInput.touched) {
+        <ng-container
+          [ngTemplateOutlet]="errorMessageTemplate"
+          [ngTemplateOutletContext]="{ $implicit: 'shared.validation.required' }"
+        >
+        </ng-container>
+      }
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="user-form__actions">
+  <button
+    mat-button
+    type="submit"
+    [disabled]="userForm.invalid"
+    (click)="onAddUser()"
+  >
+    {{ 'shared.buttons.add' | translate }}
+  </button>
+  <button
+    mat-button
+    (click)="onClose()"
+  >
+    {{ 'shared.buttons.close' | translate }}
+  </button>
+</mat-dialog-actions>
+
+<!-- Шаблон для сообщения об ошибке -->
+<ng-template
+  #errorMessageTemplate
+  let-errorMessage
+>
+  <div class="error-message">
+    {{ errorMessage | translate }}
+  </div>
+</ng-template>

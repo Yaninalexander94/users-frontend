@@ -1,0 +1,30 @@
+<h2 class="user-item__title" mat-dialog-title>{{ data.user.name }} {{ data.user.surname }}</h2>
+<mat-dialog-content>
+  <div class="user-item__details">
+    <p>{{ 'widgets.usersList.userItem.login' | translate }}: {{ data.user.login }}</p>
+    <p>{{ 'widgets.usersList.userItem.email' | translate }}: {{ data.user.email }}</p>
+    <p>{{ 'widgets.usersList.userItem.position' | translate }}: {{ data.user.position }}</p>
+    <p>{{ 'widgets.usersList.userItem.status.title' | translate }}: {{ statusTranslate + '.title' | translate }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="user-item__actions">
+  <button
+    mat-button
+    (click)="onStatusChange()"
+  >
+    {{ statusTranslate + '.action' | translate }}
+  </button>
+  <button
+    mat-button
+    (click)="onDeleteUser()"
+  >
+    {{ 'shared.buttons.delete' | translate }}
+  </button>
+  <button
+    mat-button
+    (click)="onClose()"
+  >
+    {{ 'shared.buttons.close' | translate }}
+  </button>
+
+</mat-dialog-actions>

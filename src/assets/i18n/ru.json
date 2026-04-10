@@ -1,0 +1,52 @@
+{
+  "widgets": {
+    "usersList": {
+      "table": {
+        "header": {
+          "login": "Логин",
+          "email": "Почта",
+          "name": "Имя",
+          "surname": "Фамилия",
+          "position": "Должность",
+          "isBlocked": "Заблокирован"
+        }
+      },
+      "userItem": {
+        "name": "Имя",
+        "surname": "Фамилия",
+        "login": "Логин",
+        "email": "Почта",
+        "position": "Должность",
+        "status": {
+          "title": "Статус",
+          "blocked": {
+            "title": "Заблокирован",
+            "action": "Разблокировать"
+          },
+          "unblocked": {
+            "title": "Активен",
+            "action": "Заблокировать"
+          }
+        }
+      },
+      "addUser": {
+        "title": "Новый пользователь",
+        "button": "Добавить пользователя"
+      }
+    }
+  },
+  "shared": {
+    "loading": "Загрузка...",
+    "noData": "Нет данных",
+    "buttons": {
+      "add": "Добавить",
+      "delete": "Удалить",
+      "close": "Закрыть",
+      "save": "Сохранить"
+    },
+    "validation": {
+      "required": "Обязательное поле",
+      "invalidEmail": "Некорректный email"
+    }
+  }
+}

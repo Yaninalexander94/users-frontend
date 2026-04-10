@@ -1,0 +1,1 @@
+export const USERS_REDUCER_NODE: string = 'USERS_REDUCER_NODE'
